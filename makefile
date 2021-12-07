@@ -14,3 +14,6 @@ all: $(NBCONVERTED) $(PANDOCCONVERTED)
 
 print-%:
 	$(info $* = $($*))
+
+format:
+	find -name '*.ipynb' -exec jupytext --sync --pipe black --pipe 'isort - --treat-comment-as-code "# %%" --float-to-top' {} +
