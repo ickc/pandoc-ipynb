@@ -7,7 +7,7 @@ PANDOCCONVERTED = $(patsubst %.ipynb,%-pandoc.html,$(IPYNB))
 all: $(NBCONVERTED) $(PANDOCCONVERTED)
 
 %.html: %.ipynb
-	jupyter-nbconvert $<
+	jupyter-nbconvert $< --to html
 %-pandoc.html: %.ipynb
 	# pandoc --ipynb-output=all --extract-media=media -s -o $@ $< # run forever
 	$(pandoc) -s -o $@ $<
