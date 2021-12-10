@@ -5,7 +5,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.1
+#       jupytext_version: 1.13.2
 #   kernelspec:
 #     display_name: all39-defaults
 #     language: python
@@ -17,7 +17,7 @@ import holoviews as hv
 import numpy as np
 
 hv.extension("matplotlib")
-hv.output(fig='svg')
+hv.output(fig="svg")
 
 # %%
 x = np.linspace(0, np.pi)

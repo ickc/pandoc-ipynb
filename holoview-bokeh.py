@@ -19,8 +19,6 @@ import numpy as np
 hv.extension("bokeh")
 
 # %%
-
-# %%
 x = np.linspace(0, np.pi)
 
 # %%
