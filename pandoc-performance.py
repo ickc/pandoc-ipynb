@@ -50,7 +50,7 @@ data["cells"][0]["outputs"][0]["data"]["application/vnd.holoviews_load.v0+json"]
 # %%
 def cook_new_data(data, n):
     res = deepcopy(data)
-    res["cells"][0]["outputs"][0]["data"]["application/vnd.holoviews_load.v0+json"] = '"' * int(n)
+    res["cells"][0]["outputs"][0]["data"]["application/vnd.holoviews_load.v0+json"] = '"' * n
     return res
 
 
@@ -90,8 +90,8 @@ df = pd.DataFrame(
 # %%
 df
 
-# %% [raw]
-# df.plot(backend="plotly", x="n", y="time (s)", log_x=True, log_y=True)
+# %%
+df.plot(backend="plotly", x="n", y="time (s)", log_x=True, log_y=True)
 
 # %%
 df_fit = df.iloc[10:]
