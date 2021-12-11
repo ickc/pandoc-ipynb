@@ -8,10 +8,12 @@ all: $(NBCONVERTED) $(PANDOCCONVERTED)
 
 %.html: %.ipynb
 	jupyter-nbconvert $< --to html
-%-pandoc.html: %.ipynb
-	# pandoc --ipynb-output=all --extract-media=media -s -o $@ $< # run forever
-	$(pandoc) -s -o $@ $<
 
+# $(pandoc) -s -o $@ $< -V header-includes='<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>' --self-contained
+%-pandoc.html: %.ipynb
+	$(pandoc) -s -o $@ $< -V header-includes='<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>' --extract-media=media
+%.native: %.ipynb
+	$(pandoc) -s -o $@ $<
 print-%:
 	$(info $* = $($*))
 
